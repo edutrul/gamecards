@@ -1,0 +1,18 @@
+html {
+  background:#ccc;
+}
+
+b { 
+  font-size:10px;
+  font-weight:normal;
+  position:absolute;
+  display:block;
+  color:#000;
+  text-align:center;
+  margin:10px;
+	-webkit-transition: all .25s linear;
+	-moz-transition: all .25s linear;
+	-ms-transition: all .25s linear;
+	-o-transition: all .25s linear;
+	transition: all .25s linear;
+}
