@@ -1,5 +1,5 @@
 window.onload = 
-  function(){
+  function() {
   var gameArray = [[0,0,0,0,0],
                    [0,0,0,0,0],
                    [0,1,1,1,0],
@@ -37,7 +37,6 @@ window.onload =
           case player:
             temp.style.background = '#f00';
             temp.style.border = '1px solid #000';
-            console.log("player: "+ i);
             playerPos[i] = {x:cX,y:cY};
             i++
             break;
@@ -48,7 +47,6 @@ window.onload =
           case playerOnGoal:
             temp.style.background = '#ff0';
             temp.style.border = '1px solid #000';
-            console.log("player: "+ i);
             playerPos[i] = {x:cX,y:cY};
             i++
             break;
@@ -73,9 +71,7 @@ window.onload =
           document.getElementById('gamecontainer').innerHTML = "";
           //Draw World
           for(y=0;y<gameArray.length;y++){
-            console.log("myY:"+y);
             for(x=0;x<gameArray[y].length;x++){
-              console.log("myx:"+x);
               renderTile(x,y);
             }
           };
@@ -87,9 +83,7 @@ window.onload =
       },
       move = function (direction) {
         if(playable) {
-          console.log(playerPos.length);
           for(i=0;i<playerPos.length;i++) {
-            console.log("move: "+ i);
             switch(direction) {
               case 0: // UP
                 newX = playerPos[i].x;
@@ -180,5 +174,38 @@ window.onload =
         }
       };
   init();
+  movements = [0, 1, 1, 2, 2];
+  sleepTime = 350;
+  i = 0;
+  makeMovements(i);
+  
+  function makeMovements(i) {
+    console.log(i);
+    setInterval(function() {
+      move(movements[i]);
+      console.log(i);
+                i++;
+
+    }, 1000);
+
+  }
+  for (var i = 0; i < movements.length; i++) {
+    //move(0);
+    console.log();
+  }
+
+  /*move(0);
+  move(1);
+  move(1);
+  move(2);*/
+
+  function sleep(milliseconds) {
+    var start = new Date().getTime();
+    for (var i = 0; i < 1e7; i++) {
+      if ((new Date().getTime() - start) > milliseconds){
+        break;
+      }
+    }
+  }
 
 };//End onload
