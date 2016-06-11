@@ -175,30 +175,25 @@ window.onload =
       };
   init();
   movements = [0, 1, 1, 2, 2];
-  sleepTime = 350;
+  delayTime = 1000;
   i = 0;
   makeMovements(i);
   
   function makeMovements(i) {
-    console.log(i);
     setInterval(function() {
       move(movements[i]);
-      console.log(i);
-                i++;
-
-    }, 1000);
+      i++;
+    }, delayTime);
 
   }
-  for (var i = 0; i < movements.length; i++) {
-    //move(0);
-    console.log();
-  }
-
-  /*move(0);
-  move(1);
-  move(1);
-  move(2);*/
-
+  
+  /**
+   * 
+   * Sleeps for a certain time.
+   * 
+   * @param int milliseconds
+   *   Milliseconds (e.g: 1000).
+   */
   function sleep(milliseconds) {
     var start = new Date().getTime();
     for (var i = 0; i < 1e7; i++) {
