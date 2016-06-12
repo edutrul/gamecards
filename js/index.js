@@ -21,6 +21,8 @@ window.onload =
       temp,
       playerPos = [],
       renderTile = function(cX,cY) {
+        console.log(cX);
+        console.log(cY);
         temp = document.createElement('b');
         temp.style.width = tileWidth + 'px';
         temp.style.height = tileHeight + 'px'; 
@@ -29,31 +31,35 @@ window.onload =
 
         switch (gameArray[cY][cX]) {
           case wall:
-            temp.style.background = '#fff';
+            temp.style.backgroundImage = "url('images/maderacubo.png'), url('images/background.png')";
+            temp.style.backgroundRepeat = "no-repeat";
             break;
           case moveable:
             temp.style.background = 'none';
             break;
           case player:
-            temp.style.background = '#f00';
-            temp.style.border = '1px solid #000';
+            temp.style.backgroundImage = "url('images/angrybird.gif')";            
+            temp.style.backgroundSize = "50px";
+            temp.style.border = '0px solid #000';
             playerPos[i] = {x:cX,y:cY};
             i++
             break;
           case goal:
-            temp.style.background = '#0f0';
-            temp.style.border = '1px solid #000';
+            temp.style.backgroundImage = "url('https://studio.code.org/blockly/media/skins/birds/goalIdle.gif')";            
+            temp.style.backgroundSize = "50px";
+            temp.style.border = '0px solid #000';
             break;
           case playerOnGoal:
-            temp.style.background = '#ff0';
-            temp.style.border = '1px solid #000';
+            temp.style.background = '#ff';
+            temp.style.border = '0px solid #ff0';
             playerPos[i] = {x:cX,y:cY};
             i++
             break;
           default:
             break;
         };
-        temp.appendChild(document.createTextNode(cX + '|' +cY +'='+gameArray[cY][cX])); document.getElementById('gamecontainer').appendChild(temp);
+        console.log(temp);
+        document.getElementById('gamecontainer').appendChild(temp);
       }, // End render tile 
       renderSteps = function() {
         document.getElementById('steps').innerHTML = "";
