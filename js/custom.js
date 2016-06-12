@@ -36,7 +36,7 @@ $( document ).ready(function() {
       }
       console.log(contador);
     };
-    setInterval(iso_shuffle, 1000);
+    setInterval(iso_shuffle, 500);
     
   });
 });
