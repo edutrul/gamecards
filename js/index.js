@@ -1,3 +1,30 @@
+var audiotypes={
+    "mp3": "audio/mpeg",
+    "mp4": "audio/mp4",
+    "ogg": "audio/ogg",
+    "wav": "audio/wav"
+}
+var my_interval;
+function ss_soundbits(sound){
+    var audio_element = document.createElement('audio')
+    if (audio_element.canPlayType){
+        for (var i=0; i<arguments.length; i++){
+            var source_element = document.createElement('source')
+            source_element.setAttribute('src', arguments[i])
+            if (arguments[i].match(/\.(\w+)$/i))
+                source_element.setAttribute('type', audiotypes[RegExp.$1])
+            audio_element.appendChild(source_element)
+        }
+        audio_element.load()
+        audio_element.playclip=function(){
+            audio_element.pause()
+            audio_element.currentTime=0
+            audio_element.play()
+        }
+        return audio_element
+    }
+}
+    
 window.onload = 
   function() {
   var gameArray = [[0,0,0,0,0],
@@ -34,16 +61,19 @@ window.onload =
             break;
           case moveable:
             temp.style.backgroundImage = "url('images/pasto.png')";
+            temp.className = "pasto";
             break;
           case player:
             temp.style.backgroundImage = "url('images/angrybird.gif'), url('images/pasto.png')";
             temp.style.backgroundSize = "50px";
             temp.style.border = '0px solid #000';
+            temp.className = 'player';
             playerPos[i] = {x:cX,y:cY};
             i++
             break;
           case goal:
             temp.style.backgroundImage = "url('https://studio.code.org/blockly/media/skins/birds/goalIdle.gif'), url('images/pasto.png')";            
+            temp.className = "goal";
             temp.style.backgroundSize = "50px";
             temp.style.border = '0px solid #000';
             break;
@@ -81,7 +111,10 @@ window.onload =
           renderSteps();
         } else {
           console.log("NEXT-LEVEL");
-          document.getElementById('gamecontainer').innerHTML = "WIN!";
+          //document.getElementById('gamecontainer').innerHTML = "WIN!";
+          $('b.player').css('background-image', "url('images/pasto.png')");
+          $('b.goal').css('background-image', "url('images/angrybird.gif'), url('images/pasto.png')");
+          playSound('angry_birds_nivel_completado.mp3');
         }
       },
       move = function (direction) {
@@ -106,11 +139,21 @@ window.onload =
                 break;
               default:
                 break;
-            };   
-
+            };
+            
+            // @TODO: Do logic when knocking a wall.
+            console.log('X:' + newX);
+            console.log('Y:' + newY);
+            console.log(gameArray[newY][newX]);
+            if (gameArray[newY][newX] == 0) {
+              playSound('angry_bird_failed.mp3');
+              console.log('GAME OVER!');
+              clearInterval(my_interval);
+            }
             // Neue und alte Position
             switch(gameArray[newY][newX]) {
               case moveable:
+                console.log('movable ?');
                 if (gameArray[playerPos[i].y][playerPos[i].x] == playerOnGoal) {
                   gameArray[playerPos[i].y][playerPos[i].x] = goal;
                   j--;
@@ -133,7 +176,7 @@ window.onload =
                 break;
             };
           }
-          if (j==playerPos.length) {
+          if (j == playerPos.length) {
             playable=false;
           }
           steps++;
@@ -191,7 +234,6 @@ window.onload =
         for (var i = movements.length-1; i >= 0; i--) {
           $('#gamecontainer').after('<img class="arrows" src="images/arrow_' + movements[i] + '.png">');
         }
-        console.log('hello');
         i = 0;
         makeMovements(i);
       }
@@ -199,7 +241,8 @@ window.onload =
   });
   
   function makeMovements(i) {
-    setInterval(function() {
+    playSound('angry_birds_lanzamiento_del_pajaro.mp3');
+    my_interval = setInterval(function() {
       move(movements[i]);
       i++;
     }, delayTime);
@@ -234,5 +277,13 @@ window.onload =
             return sParameterName[1] === undefined ? true : sParameterName[1];
         }
     }
+  }
+  
+  function playSound(sound) {
+    var audioElement = document.createElement('audio');
+    audioElement.setAttribute('src', 'music/' + sound);
+    audioElement.setAttribute('autoplay', 'autoplay');
+    $.get();
+    audioElement.play();
   }
 };//End onload
