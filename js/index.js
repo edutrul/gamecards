@@ -174,18 +174,29 @@ window.onload =
         }
       };
   init();
-  movements = [0, 1, 1, 2, 2];
-  delayTime = 1000;
-  i = 0;
-  makeMovements(i);
   
-  function makeMovements(i) {
-    setInterval(function() {
-      move(movements[i]);
-      i++;
-    }, delayTime);
-
-  }
+  $.ajax({
+    type: "POST",
+    url: '/data.php',
+    success: function(response) {
+      if (response.data != 'undefined') {
+        console.log(response);
+        console.log(response.data);
+        //movements = [0, 1, 1, 2, 2];
+        movements = response.data.split(',').map(Number);
+        delayTime = 1000;
+        i = 0;
+        makeMovements(i);
+      }
+    }
+  });
+  
+        function makeMovements(i) {
+          setInterval(function() {
+            move(movements[i]);
+            i++;
+          }, delayTime);
+        }
   
   /**
    * 
