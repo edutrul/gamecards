@@ -4,9 +4,9 @@ if (isset($_POST['data'])) {
   $data = $_POST['data'];
   $sql = "INSERT INTO opcion (data) VALUES ('" . $data . "')";
   if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+    print "New record created successfully";
   } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    print "Error: " . $sql . "<br>" . $conn->error;
   }
   $conn->close();
 }

@@ -21,8 +21,6 @@ window.onload =
       temp,
       playerPos = [],
       renderTile = function(cX,cY) {
-        console.log(cX);
-        console.log(cY);
         temp = document.createElement('b');
         temp.style.width = tileWidth + 'px';
         temp.style.height = tileHeight + 'px'; 
@@ -58,7 +56,6 @@ window.onload =
           default:
             break;
         };
-        console.log(temp);
         document.getElementById('gamecontainer').appendChild(temp);
       }, // End render tile 
       renderSteps = function() {
@@ -183,7 +180,7 @@ window.onload =
   
   $.ajax({
     type: "POST",
-    url: '/data.php',
+    url: '/data.php?juego=' + getUrlParameter('juego'),
     success: function(response) {
       if (response.data != 'undefined') {
         console.log(response);
@@ -223,5 +220,19 @@ window.onload =
       }
     }
   }
+  
+  function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
 
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+  }
 };//End onload
