@@ -16,3 +16,7 @@ b {
 	-o-transition: all .25s linear;
 	transition: all .25s linear;
 }
+
+img.arrows {
+  padding-top: 400px;
+}

@@ -185,18 +185,22 @@ window.onload =
         //movements = [0, 1, 1, 2, 2];
         movements = response.data.split(',').map(Number);
         delayTime = 1000;
+        for (var i = movements.length-1; i >= 0; i--) {
+          $('#gamecontainer').after('<img class="arrows" src="images/arrow_' + movements[i] + '.png">');
+        }
+        console.log('hello');
         i = 0;
         makeMovements(i);
       }
     }
   });
   
-        function makeMovements(i) {
-          setInterval(function() {
-            move(movements[i]);
-            i++;
-          }, delayTime);
-        }
+  function makeMovements(i) {
+    setInterval(function() {
+      move(movements[i]);
+      i++;
+    }, delayTime);
+  }
   
   /**
    * 
