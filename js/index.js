@@ -31,21 +31,21 @@ window.onload =
 
         switch (gameArray[cY][cX]) {
           case wall:
-            temp.style.backgroundImage = "url('images/maderacubo.png'), url('images/background.png')";
+            temp.style.backgroundImage = "url('images/maderacubo.png'), url('images/pasto.png')";
             temp.style.backgroundRepeat = "no-repeat";
             break;
           case moveable:
-            temp.style.background = 'none';
+            temp.style.backgroundImage = "url('images/pasto.png')";
             break;
           case player:
-            temp.style.backgroundImage = "url('images/angrybird.gif')";            
+            temp.style.backgroundImage = "url('images/angrybird.gif'), url('images/pasto.png')";
             temp.style.backgroundSize = "50px";
             temp.style.border = '0px solid #000';
             playerPos[i] = {x:cX,y:cY};
             i++
             break;
           case goal:
-            temp.style.backgroundImage = "url('https://studio.code.org/blockly/media/skins/birds/goalIdle.gif')";            
+            temp.style.backgroundImage = "url('https://studio.code.org/blockly/media/skins/birds/goalIdle.gif'), url('images/pasto.png')";            
             temp.style.backgroundSize = "50px";
             temp.style.border = '0px solid #000';
             break;
