@@ -1,8 +1,9 @@
 <?php
-if (isset($_POST['data'])) {
+if (isset($_POST['data']) && isset($_POST['juego'])) {
   require_once 'connection.php';
   $data = $_POST['data'];
-  $sql = "INSERT INTO opcion (data) VALUES ('" . $data . "')";
+  $juego_id = $_POST['juego'];
+  $sql = "INSERT INTO opcion (data, juego_id) VALUES ('" . $data . "', " . $juego_id . ")";
   if ($conn->query($sql) === TRUE) {
     print "New record created successfully";
   } else {

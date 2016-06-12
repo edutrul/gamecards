@@ -1,13 +1,6 @@
 window.onload = 
   function() {
-  var gameArray = [[0,0,0,0,0],
-                   [0,0,0,0,0],
-                   [0,1,1,1,0],
-                   [0,2,0,1,0],
-                   [0,0,0,3,0],
-                   [0,0,0,0,0],
-                   [0,0,0,0,0],
-                   [0,0,0,0,0]],
+  var
       wall=0,
       moveable=1,
       player=2,
@@ -68,7 +61,7 @@ window.onload =
         temp.style.height = tileHeight + 'px';
         temp.style.right = '0px';
         temp.style.top = '0px';
-        temp.appendChild(document.createTextNode('STEPS: ' + steps)); 
+        temp.appendChild(document.createTextNode('PASOS: ' + steps)); 
         document.getElementById('steps').appendChild(temp);
       },
       renderWorld = function() {
@@ -192,18 +185,34 @@ window.onload =
           //self.restart.call(self, event);
         }
       };
-  init();
-  
+  //console.log(gameArray);
   $.ajax({
     type: "POST",
     url: '/data.php?juego=' + getUrlParameter('juego'),
     success: function(response) {
       if (response.data != 'undefined') {
+
         console.log(response);
         console.log(response.data);
+        console.log(response.tablero);
+        console.log(response.dificultad);
+        gameArray = JSON.parse(response.tablero);
+        init();
+        console.log(gameArray);
         //movements = [0, 1, 1, 2, 2];
         movements = response.data.split(',').map(Number);
         delayTime = 1000;
+        switch (response.dificultad) {
+          case 'facil':
+            delayTime = 800;
+            break;
+          case 'intermedio':
+            delayTime = 400;
+            break;
+          case 'dificil':
+            delayTime = 200;
+            break;
+        }
         $('#gamecontainer').after('<div id="movements"></div>');
         for (var i = 0; i < movements.length; i++) {
           $('#movements').append('<img id="arrow-id-' + i + '"' +

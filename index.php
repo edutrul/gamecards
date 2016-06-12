@@ -54,13 +54,13 @@
                         <a href="/" data-filter=".element-item">Todos</a>
                     </li>
                     <li>
-                        <a href="/" data-filter=".facil">Facil</a>
+                        <a href="/" data-filter=".facil">Huevo</a>
                     </li>
                     <li>
-                        <a href="/" data-filter=".intermedio">Intermedio</a>
+                        <a href="/" data-filter=".intermedio">Polluelo</a>
                     </li>
                     <li>
-                        <a href="/" data-filter=".dificil">Dificil</a>
+                        <a href="/" data-filter=".dificil">Pichon</a>
                     </li>
                     <li>
                         <a href="/" class="sorprendeme" >SORPRENDEME!</a>
