@@ -108,3 +108,13 @@ a.sorprendeme {
   font-weight: bolder;
   color: yellow !important;
 }
+
+.imagen-aguila {
+  width: 100%;
+  
+}
+
+.resultado-aguila {
+  background-image: url('images/aguila.gif');
+  width: 100%;
+}
