@@ -1,30 +1,3 @@
-var audiotypes={
-    "mp3": "audio/mpeg",
-    "mp4": "audio/mp4",
-    "ogg": "audio/ogg",
-    "wav": "audio/wav"
-}
-var my_interval;
-function ss_soundbits(sound){
-    var audio_element = document.createElement('audio')
-    if (audio_element.canPlayType){
-        for (var i=0; i<arguments.length; i++){
-            var source_element = document.createElement('source')
-            source_element.setAttribute('src', arguments[i])
-            if (arguments[i].match(/\.(\w+)$/i))
-                source_element.setAttribute('type', audiotypes[RegExp.$1])
-            audio_element.appendChild(source_element)
-        }
-        audio_element.load()
-        audio_element.playclip=function(){
-            audio_element.pause()
-            audio_element.currentTime=0
-            audio_element.play()
-        }
-        return audio_element
-    }
-}
-    
 window.onload = 
   function() {
   var gameArray = [[0,0,0,0,0],
@@ -231,8 +204,10 @@ window.onload =
         //movements = [0, 1, 1, 2, 2];
         movements = response.data.split(',').map(Number);
         delayTime = 1000;
-        for (var i = movements.length-1; i >= 0; i--) {
-          $('#gamecontainer').after('<img class="arrows" src="images/arrow_' + movements[i] + '.png">');
+        $('#gamecontainer').after('<div id="movements"></div>');
+        for (var i = 0; i < movements.length; i++) {
+          $('#movements').append('<img id="arrow-id-' + i + '"' +
+'class="arrows arrow-movement-' + movements[i] + ' " src="images/arrow_' + movements[i] + '.png">');
         }
         i = 0;
         makeMovements(i);
@@ -244,6 +219,8 @@ window.onload =
     playSound('angry_birds_lanzamiento_del_pajaro.mp3');
     my_interval = setInterval(function() {
       move(movements[i]);
+      $('.arrows').removeClass('active');
+      $('#arrow-id-' + i).addClass('active');
       i++;
     }, delayTime);
   }

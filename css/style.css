@@ -17,6 +17,14 @@ b {
 	transition: all .25s linear;
 }
 
-img.arrows {
-  padding-top: 400px;
+#movements {
+  padding-top: 410px;
+}
+.arrows {
+  margin: 5px;
+  width: 50px;
+}
+
+.arrows.active {
+  border: 5px solid red;
 }
