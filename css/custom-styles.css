@@ -118,3 +118,21 @@ a.sorprendeme {
   background-image: url('images/aguila.gif');
   width: 100%;
 }
+
+
+div.crear_laberinto {
+    width: 400px;
+    height: 400px;
+    position: relative;
+}
+
+.tile { 
+    float: left;
+    -webkit-transition: all .1s linear;
+    -moz-transition: all .1s linear;
+    -ms-transition: all .1s linear;
+    -o-transition: all .1s linear;
+}
+.tile:hover { 
+    opacity: .65; 
+}
