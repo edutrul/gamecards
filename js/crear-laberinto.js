@@ -94,9 +94,10 @@ $( document ).ready(function() {
         else if ($(this).attr("class").match(/(tile-direction-.*?)(?:\s+|$)/) != null) {
           direction_string = $(this).attr("class").match(/(tile-direction-.*?)(?:\s+|$)/)[0];
           direction_number = 1 + parseInt(direction_string.match(/[0-9]+/)[0], 10);
-          // Compare for the last direction number if so then remove class to begin again.
+          // Compare for the last direction number if so then remove classes to begin again.
           if (direction_number == 15) {
             $(this).removeClass('tile-direction-14');
+            $(this).removeClass('tile-go');
           }
           else {
             $(this).removeClass(direction_string);
@@ -121,9 +122,10 @@ $( document ).ready(function() {
         else if ($(this).attr("class").match(/(tile-direction-.*?)(?:\s+|$)/) != null) {
           direction_string = $(this).attr("class").match(/(tile-direction-.*?)(?:\s+|$)/)[0];
           direction_number = 1 + parseInt(direction_string.match(/[0-9]+/)[0], 10);
-          // Compare for the last direction number if so then remove class to begin again.
+          // Compare for the last direction number if so then remove classes to begin again.
           if (direction_number == 15) {
             $(this).removeClass('tile-direction-14');
+            $(this).removeClass('tile-win');
           }
           else {
             $(this).removeClass(direction_string);
