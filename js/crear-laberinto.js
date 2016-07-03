@@ -82,4 +82,21 @@ $( document ).ready(function() {
       console.log('Correcto avanzar');
     }
   });
+  
+  // When clicking a DIV tile.
+  $('div.tile').click(function(event) {
+    if ($("#radio-donde-avanzar").is(":checked")) {
+      $(this).addClass('tile-go');
+      if ($(this).hasClass('tile-win')) {
+        $(this).removeClass('tile-win');
+      }
+    }
+    if ($("#radio-correcto-avanzar").is(":checked")) {
+      $(this).addClass('tile-win');
+      if ($(this).hasClass('tile-go')) {
+        $(this).removeClass('tile-go');
+      }
+    }
+  });
+
 });

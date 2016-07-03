@@ -138,10 +138,17 @@ div.crear_laberinto {
   box-shadow: inset 0 0 0 1000px rgba(49, 176, 213,.7);
 }
 
-.tile-donde-avanzar:hover {
+.tile-donde-avanzar:hover, .tile-go {
   box-shadow: inset 0 0 0 1000px rgba(49, 176, 213,.7);
 }
 
-.tile-correcto-avanzar:hover {
+.tile-correcto-avanzar:hover, .tile-win {
   box-shadow: inset 0 0 0 1000px rgba(40, 96, 144,.7);
 }
+
+/* DIRECTIONS. */
+
+.tile-direction-top {  border-top: 2px solid red; }
+.tile-direction-right {  border-right: 2px solid red; }
+.tile-direction-bottom {  border-bottom: 2px solid red; }
+.tile-direction-left {  border-left: 2px solid red; }
