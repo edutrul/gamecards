@@ -50,7 +50,7 @@
 }( jQuery, window ));
 
 $( document ).ready(function() {
-  $('div').splitInTiles();
+  $('div.crear_laberinto').splitInTiles();
 
 });
 

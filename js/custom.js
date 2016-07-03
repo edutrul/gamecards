@@ -10,6 +10,9 @@ $( document ).ready(function() {
 
   // bind filter button click
   $('.game-cards-filters').on( 'click', 'a', function(event) {
+    if ($(this).hasClass('link')) {
+      return;
+    }
     event.preventDefault();
     var filterValue = $( this ).attr('data-filter');
     console.log(filterValue);

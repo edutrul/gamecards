@@ -12,12 +12,18 @@
 
     <title>GAME CARDS | Diviertete programando</title>
 
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Custom CSS -->
+    <link href="css/heroic-features.css" rel="stylesheet">
     <link href="css/custom-styles.css" rel="stylesheet">
 
     <!-- CUSTOM JS -->
     <script src="js/jquery.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
     <script src="js/crear-laberinto.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -28,22 +34,67 @@
 </head>
 
 <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Niño: Jorgito</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav game-cards-filters">
+                    <li>
+                        <a href="/" data-filter=".element-item">Todos</a>
+                    </li>
+                    <li>
+                        <a href="/" data-filter=".facil">Huevo</a>
+                    </li>
+                    <li>
+                        <a href="/" data-filter=".intermedio">Polluelo</a>
+                    </li>
+                    <li>
+                        <a href="/" data-filter=".dificil">Pichon</a>
+                    </li>
+                    <li>
+                        <a href="/resultado.html" class="sorprendeme">EL GAVILAN!</a>
+                    <li>
+                        <a href="/crear-laberinto.html" class="link">CREAR LABERINTO</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
 
+    <!-- Page Content -->
+    <div class="container">
 
+      
       
         <!-- Page Features -->
 
         <!-- /.row -->
-        <div class="crear_laberinto">
+        <div style="text-align: center" class="crear_laberinto">
           <!--<img src="http://placekitten.com/400/400"/>-->
           <img src="http://3.bp.blogspot.com/-s43viazsw9w/UPb9insWOgI/AAAAAAAAAE8/_FZmQA0Y2E8/s1600/laberinto.jpg"/>
         </div>
 
+    </div>
     <!-- /.container -->
 
     <!-- jQuery -->
 
     <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
 
 </body>
 

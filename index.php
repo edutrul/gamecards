@@ -65,6 +65,9 @@
                     <li>
                         <a href="/resultado.html" class="sorprendeme">EL GAVILAN!</a>
                     </li>
+                    <li>
+                        <a href="/crear-laberinto.html" class="link">CREAR LABERINTO</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
