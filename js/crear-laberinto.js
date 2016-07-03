@@ -1,11 +1,12 @@
-;(function( $, window ) {
-
+$( document ).ready(function() {
+  console.log($('#select_x').val());
+  console.log($('#select_y').val());
   var _defaults = {
-    x : 3, // tiles in x axis
-    y : 3, // tiles in y axis
+    x : 1, // tiles in x axis
+    y : 1, // tiles in y axis
     gap: 2
   };
-
+  
   $.fn.splitInTiles = function( options ) {
 
     var o = $.extend( {}, _defaults, options );
@@ -18,7 +19,7 @@
           $img = $container.find('img'),
           n_tiles = o.x * o.y,
           wraps = [], $wraps;
-
+          
       for ( var i = 0; i < n_tiles; i++ ) {
         wraps.push('<div class="tile"/>');
       }
@@ -46,11 +47,20 @@
     });
 
   };
-
-}( jQuery, window ));
-
-$( document ).ready(function() {
   $('div.crear_laberinto').splitInTiles();
 
+  $('#matrix select').change(function() {
+    xv = $('#select_x').val();
+    yv = $('#select_y').val();
+    console.log(xv);
+    console.log(yv);
+    
+    var _defaults = {
+      x : xv, // tiles in x axis
+      y : yv, // tiles in y axis
+      gap: 2
+    };
+    $('div.tile').remove();
+    $('div.crear_laberinto').splitInTiles(_defaults);
+  });
 });
-
