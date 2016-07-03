@@ -2,8 +2,8 @@ $( document ).ready(function() {
   console.log($('#select_x').val());
   console.log($('#select_y').val());
   var _defaults = {
-    x : 1, // tiles in x axis
-    y : 1, // tiles in y axis
+    x : 12, // tiles in x axis
+    y : 12, // tiles in y axis
     gap: 2
   };
   

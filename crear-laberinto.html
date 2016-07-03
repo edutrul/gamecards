@@ -78,9 +78,10 @@
     <!-- Page Content -->
     <div class="container">
         <!-- Page Features -->
-          <div id="matrix">
+        <div id="matrix" class="row">
+          <div class="col-md-1">
             <b>X</b>
-            <select id="select_x">
+            <select id="select_x" class="form-control">
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -91,21 +92,43 @@
               <option value="8">8</option>
               <option value="9">9</option>
               <option value="10">10</option>
-            </select>
-            <b>Y</b>
-            <select id="select_y">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
             </select>
           </div>
+          <div class="col-md-1">
+            <b>Y</b>
+            <select id="select_y" class="form-control">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+            </select>
+          </div>
+          <div class="col-md-8">
+            <div class="btn-group" data-toggle="buttons">
+              <label class="btn btn-primary active">
+                <input type="radio" name="options" id="radio-donde-avanzar" checked>Por donde Avanzar
+              </label>
+              <label class="btn btn-primary">
+                <input type="radio" name="options" id="radio-correct-avanzar">Avanzar por el camino correcto
+              </label>
+            </div>          
+          </div>
+        </div>
+
         <!-- /.row -->
         <div style="text-align: center" class="crear_laberinto">
           <!--<img src="http://placekitten.com/400/400"/>-->
