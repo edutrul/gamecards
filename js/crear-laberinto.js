@@ -86,13 +86,54 @@ $( document ).ready(function() {
   // When clicking a DIV tile.
   $('div.tile').click(function(event) {
     if ($("#radio-donde-avanzar").is(":checked")) {
-      $(this).addClass('tile-go');
+      // If tile-go exists and it is EMPTY.
+      if ($(this).hasClass('tile-go')) {
+        if ($(this).attr("class").match(/(tile-direction-.*?)(?:\s+|$)/) == null) {
+          $(this).addClass('tile-direction-1');
+        }
+        else if ($(this).attr("class").match(/(tile-direction-.*?)(?:\s+|$)/) != null) {
+          direction_string = $(this).attr("class").match(/(tile-direction-.*?)(?:\s+|$)/)[0];
+          direction_number = 1 + parseInt(direction_string.match(/[0-9]+/)[0], 10);
+          // Compare for the last direction number if so then remove class to begin again.
+          if (direction_number == 15) {
+            $(this).removeClass('tile-direction-14');
+          }
+          else {
+            $(this).removeClass(direction_string);
+            $(this).addClass('tile-direction-' + direction_number);
+          }
+        }
+      }
+      else {
+        $(this).addClass('tile-go');
+      }
       if ($(this).hasClass('tile-win')) {
         $(this).removeClass('tile-win');
       }
     }
+    
     if ($("#radio-correcto-avanzar").is(":checked")) {
-      $(this).addClass('tile-win');
+      // If tile-go exists and it is EMPTY.
+      if ($(this).hasClass('tile-win')) {
+        if ($(this).attr("class").match(/(tile-direction-.*?)(?:\s+|$)/) == null) {
+          $(this).addClass('tile-direction-1');
+        }
+        else if ($(this).attr("class").match(/(tile-direction-.*?)(?:\s+|$)/) != null) {
+          direction_string = $(this).attr("class").match(/(tile-direction-.*?)(?:\s+|$)/)[0];
+          direction_number = 1 + parseInt(direction_string.match(/[0-9]+/)[0], 10);
+          // Compare for the last direction number if so then remove class to begin again.
+          if (direction_number == 15) {
+            $(this).removeClass('tile-direction-14');
+          }
+          else {
+            $(this).removeClass(direction_string);
+            $(this).addClass('tile-direction-' + direction_number);
+          }
+        }
+      }
+      else {
+        $(this).addClass('tile-win');
+      }
       if ($(this).hasClass('tile-go')) {
         $(this).removeClass('tile-go');
       }
