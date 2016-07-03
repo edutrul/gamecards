@@ -133,7 +133,15 @@ div.crear_laberinto {
   -ms-transition: all .1s linear;
   -o-transition: all .1s linear;
 }
+
 .tile:hover {
-  box-shadow: inset 0 0 0 1000px rgba(249, 153, 56,.2);
-  /*opacity: .65; */
+  box-shadow: inset 0 0 0 1000px rgba(49, 176, 213,.7);
+}
+
+.tile-donde-avanzar:hover {
+  box-shadow: inset 0 0 0 1000px rgba(49, 176, 213,.7);
+}
+
+.tile-correcto-avanzar:hover {
+  box-shadow: inset 0 0 0 1000px rgba(40, 96, 144,.7);
 }

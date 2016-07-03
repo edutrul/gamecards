@@ -48,7 +48,8 @@ $( document ).ready(function() {
 
   };
   $('div.crear_laberinto').splitInTiles();
-
+  
+  // MATRIX X, Y.
   $('#matrix select').change(function() {
     xv = $('#select_x').val();
     yv = $('#select_y').val();
@@ -62,5 +63,23 @@ $( document ).ready(function() {
     };
     $('div.tile').remove();
     $('div.crear_laberinto').splitInTiles(_defaults);
+  });
+  
+  // RADIO BUTTONS.
+  $("input[name=radio_avanzar]:radio").change(function () {
+    if ($("#radio-donde-avanzar").is(":checked")) {
+      $('div.tile').addClass('tile-donde-avanzar');
+      if ($('div.tile').hasClass('tile-correcto-avanzar')) {
+        $('div.tile').removeClass('tile-correcto-avanzar');
+      }
+      console.log('Por donde avanzar');
+    }
+    if ($("#radio-correcto-avanzar").is(":checked")) {
+      $('div.tile').addClass('tile-correcto-avanzar');
+      if ($('div.tile').hasClass('tile-donde-avanzar')) {
+        $('div.tile').removeClass('tile-donde-avanzar');
+      }
+      console.log('Correcto avanzar');
+    }
   });
 });
