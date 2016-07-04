@@ -61,6 +61,7 @@ $( document ).ready(function() {
       y : yv, // tiles in y axis
       gap: 2
     };
+    $('div.tile').remove();
     $('div.crear-laberinto').splitInTiles(_defaults);
   });
   
