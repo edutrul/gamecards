@@ -120,7 +120,7 @@ a.sorprendeme {
 }
 
 
-div.crear_laberinto {
+div.crear-laberinto {
   width: 400px;
   height: 400px;
   position: relative;
@@ -138,11 +138,11 @@ div.crear_laberinto {
   box-shadow: inset 0 0 0 1000px rgba(49, 176, 213,.7);
 }
 
-.tile-donde-avanzar:hover, .tile-go {
+.tile-go-hover:hover, .tile-go {
   box-shadow: inset 0 0 0 1000px rgba(49, 176, 213,.7);
 }
 
-.tile-correcto-avanzar:hover, .tile-win {
+.tile-win-hover:hover, .tile-win {
   box-shadow: inset 0 0 0 1000px rgba(40, 96, 144,.7);
 }
 

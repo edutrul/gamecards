@@ -47,7 +47,7 @@ $( document ).ready(function() {
     });
 
   };
-  $('div.crear_laberinto').splitInTiles();
+  $('div.crear-laberinto').splitInTiles();
   
   // MATRIX X, Y.
   $('#matrix select').change(function() {
@@ -61,30 +61,30 @@ $( document ).ready(function() {
       y : yv, // tiles in y axis
       gap: 2
     };
-    $('div.tile').remove();
-    $('div.crear_laberinto').splitInTiles(_defaults);
+    $('div.crear-laberinto').splitInTiles(_defaults);
   });
   
   // RADIO BUTTONS.
   $("input[name=radio_avanzar]:radio").change(function () {
     if ($("#radio-donde-avanzar").is(":checked")) {
-      $('div.tile').addClass('tile-donde-avanzar');
-      if ($('div.tile').hasClass('tile-correcto-avanzar')) {
-        $('div.tile').removeClass('tile-correcto-avanzar');
+      $('div.tile').addClass('tile-go-hover');
+      if ($('div.tile').hasClass('tile-win-hover')) {
+        $('div.tile').removeClass('tile-win-hover');
       }
-      console.log('Por donde avanzar');
     }
     if ($("#radio-correcto-avanzar").is(":checked")) {
-      $('div.tile').addClass('tile-correcto-avanzar');
-      if ($('div.tile').hasClass('tile-donde-avanzar')) {
-        $('div.tile').removeClass('tile-donde-avanzar');
+      $('div.tile').addClass('tile-win-hover');
+      if ($('div.tile').hasClass('tile-go-hover')) {
+        $('div.tile').removeClass('tile-go-hover');
       }
-      console.log('Correcto avanzar');
     }
   });
   
   // When clicking a DIV tile.
-  $('div.tile').click(function(event) {
+  $('div').on('click', '.tile', function(event){
+    event.preventDefault();
+    event.stopPropagation();
+    console.log('here..');
     if ($("#radio-donde-avanzar").is(":checked")) {
       // If tile-go exists and it is EMPTY.
       if ($(this).hasClass('tile-go')) {
