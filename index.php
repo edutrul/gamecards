@@ -63,10 +63,10 @@
                         <a href="/" data-filter=".dificil">Pichon</a>
                     </li>
                     <li>
-                        <a href="/resultado.html" class="sorprendeme">EL GAVILAN!</a>
+                        <a href="resultado.html" class="sorprendeme">EL GAVILAN!</a>
                     </li>
                     <li>
-                        <a href="/crear-laberinto.html" class="link">CREAR LABERINTO</a>
+                        <a href="crear-laberinto.html" class="link">CREAR LABERINTO</a>
                     </li>
                 </ul>
             </div>
