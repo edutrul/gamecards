@@ -4,7 +4,7 @@ $( document ).ready(function() {
   var _defaults = {
     x : 12, // tiles in x axis
     y : 12, // tiles in y axis
-    gap: 2
+    gap: 2 // @TODO: Define what's this variable ?
   };
   
   $.fn.splitInTiles = function( options ) {
